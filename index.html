@@ -3,11 +3,255 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Author & Quantum Researcher</title>
+    <title>E. Arthur Caspian | The God of Between</title>
+    <meta name="description" content="The God of Between is a dark science fantasy of shattered faith, cosmic collapse, and the end of the order that once held all things together." />
     <script type="module" crossorigin src="./assets/index-B1Mlrx9Z.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-nKPl2x76.css">
   </head>
   <body>
     <div id="root"></div>
+  
+    
+    <script>
+      window.addEventListener('load', function() {
+        const urls = {
+          amazon: 'https://www.amazon.com/God-Between-Arthur-Caspian/dp/B0GVGLYS8C/',
+          website: 'https://earthurcaspian.com/',
+          linkedin: 'https://linkedin.com/m/in/ethanarthurcaspian/',
+          email: 'mailto:ethan.a.caspian@gmail.com',
+          goodreads: 'https://www.goodreads.com/book/show/250434376-the-god-of-between?from_search=true&from_srp=true&qid=xFEzAb8dlX&rank=3'
+        };
+
+        const blurb = 'The ancient angels rebel. The promised God never appears. Faith shatters. As the old order begins to fail, the fate of creation turns around three archangels: Gabriel, Michael, and Raphael. Gabriel faces the collapse of everything he believed in. Michael is drawn toward truths buried beyond the edge of certainty. Raphael changes sides, and his choice sends shockwaves through heaven, worlds, and the structure of the universe itself. What begins as a crisis of belief quickly becomes something far greater. The light starts to fade. The fabric of the universe weakens. The laws that once held reality together begin to break against one another, and darkness spreads through worlds, through heaven, and through the architecture of existence itself. As buried truths rise from the dark, advanced civilizations, goddesses, angels, and humanity are pulled into the same unraveling design. At the center of prophecy stands the mystery of the false god — a presence tied to hidden histories, cosmic failure, and the flaw at the heart of creation. And beneath it all, the Red Angel awaits awakening. For when the final moment comes, he will rise to bring judgment upon a universe already collapsing under the weight of its own broken design. The God of Between is a dark science fantasy of shattered faith, cosmic collapse, and the end of the order that once held all things together.';
+
+        const q = (sel, root = document) => root.querySelector(sel);
+        const qa = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+        function setExternalLink(anchor, href, label) {
+          if (!anchor) return;
+          anchor.setAttribute('href', href);
+          if (!href.startsWith('mailto:')) {
+            anchor.setAttribute('target', '_blank');
+            anchor.setAttribute('rel', 'noreferrer noopener');
+          }
+          const span = anchor.querySelector('span');
+          if (span) {
+            span.textContent = label;
+          } else {
+            anchor.textContent = label;
+          }
+        }
+
+        function wireButton(button, label, href) {
+          if (!button) return;
+          const textNode = Array.from(button.childNodes).find(function(node) {
+            return node.nodeType === Node.TEXT_NODE && node.textContent.trim();
+          });
+          if (textNode) textNode.textContent = label;
+          button.addEventListener('click', function() {
+            window.open(href, '_blank', 'noopener');
+          });
+        }
+
+        const hero = document.getElementById('hero');
+        if (hero) {
+          const heroText = qa('p', hero).find(function(node) {
+            return node.textContent.includes('Published work by Ethan A. Caspian');
+          });
+          if (heroText) {
+            heroText.textContent = 'A dark science fantasy of shattered faith, cosmic collapse, and the end of the order that once held all things together.';
+          }
+          qa('a', hero).forEach(function(anchor) {
+            anchor.setAttribute('href', urls.amazon);
+            anchor.setAttribute('target', '_blank');
+            anchor.setAttribute('rel', 'noreferrer noopener');
+          });
+        }
+
+        const author = document.getElementById('author');
+        if (author) {
+          const authorParagraph = qa('p', author).find(function(node) {
+            return node.textContent.includes('Physicist turned novelist');
+          });
+          if (authorParagraph) {
+            authorParagraph.textContent = 'Physicist turned novelist. Ethan A. Caspian writes dark science fantasy while pursuing independent research in quantum information, coherence, measurement, and quantum error correction.';
+          }
+          const authorQuote = q('blockquote', author);
+          if (authorQuote) {
+            authorQuote.textContent = '"Faith shatters. The light starts to fade. The laws that once held reality together begin to break."';
+          }
+          const authorCite = q('cite', author);
+          if (authorCite) {
+            authorCite.textContent = '— THE GOD OF BETWEEN';
+          }
+          const authorButton = qa('button', author).find(function(node) {
+            return node.textContent.includes('See biography');
+          });
+          wireButton(authorButton, 'Visit website', urls.website);
+        }
+
+        const research = document.getElementById('research');
+        if (research) {
+          const heading = q('h2', research);
+          if (heading) {
+            heading.innerHTML = 'Quantum information.<br>Testable ideas.';
+          }
+          const paragraph = qa('p', research).find(function(node) {
+            return node.textContent.includes('translate complexity into narrative');
+          });
+          if (paragraph) {
+            paragraph.textContent = 'Independent research in quantum information, with focus on coherence, measurement theory, and quantum error correction.';
+          }
+          const quote = q('blockquote', research);
+          if (quote) {
+            quote.textContent = '"Direct reasoning. Testable ideas. Clear frameworks."';
+          }
+          const cite = q('cite', research);
+          if (cite) {
+            cite.textContent = '— RESEARCH APPROACH';
+          }
+          const researchButton = qa('button', research).find(function(node) {
+            return node.textContent.includes('Explore selected work');
+          });
+          wireButton(researchButton, 'Visit website', urls.website);
+        }
+
+        const cards = qa('.pub-card');
+        const cardData = [
+          {
+            category: 'NOVEL',
+            title: 'The God of Between',
+            meta: 'Dark science fantasy · Amazon',
+            description: 'Ancient angels rebel, faith shatters, and creation begins to fail as Gabriel, Michael, and Raphael are drawn into the mystery of the false god.',
+            href: urls.amazon
+          },
+          {
+            category: 'GOODREADS',
+            title: 'Reader page',
+            meta: 'Ratings, reviews, and shelves',
+            description: 'Follow the book on Goodreads for ratings, reviews, reader activity, and updates.',
+            href: urls.goodreads
+          },
+          {
+            category: 'WEBSITE',
+            title: 'earthurcaspian.com',
+            meta: 'Author site',
+            description: 'Visit the website for book news, research notes, and direct contact.',
+            href: urls.website
+          }
+        ];
+
+        cards.forEach(function(card, index) {
+          const data = cardData[index];
+          if (!data) return;
+          const category = q('span', card);
+          const title = q('h3', card);
+          const meta = qa('span', card)[1];
+          const description = q('p', card);
+          if (category) category.textContent = data.category;
+          if (title) title.textContent = data.title;
+          if (meta) meta.textContent = data.meta;
+          if (description) description.textContent = data.description;
+          card.setAttribute('role', 'link');
+          card.setAttribute('tabindex', '0');
+          card.addEventListener('click', function() {
+            window.open(data.href, '_blank', 'noopener');
+          });
+          card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              window.open(data.href, '_blank', 'noopener');
+            }
+          });
+        });
+
+        const newsletter = qa('section').find(function(section) {
+          return section.textContent.includes('Get the notebook.');
+        });
+        if (newsletter) {
+          const label = qa('span', newsletter).find(function(node) {
+            return node.textContent.trim() === 'STAY IN THE LOOP';
+          });
+          if (label) label.textContent = 'ABOUT THE NOVEL';
+          const heading = q('h2', newsletter);
+          if (heading) heading.textContent = 'The God of Between';
+          const description = qa('p', newsletter).find(function(node) {
+            return node.textContent.includes('A short email when the next chapter drops');
+          });
+          if (description) description.textContent = blurb;
+          const form = q('form', newsletter);
+          if (form) {
+            const input = q('input', form);
+            if (input) input.style.display = 'none';
+            form.addEventListener('submit', function(e) {
+              e.preventDefault();
+              window.open(urls.goodreads, '_blank', 'noopener');
+            });
+            form.style.justifyContent = 'center';
+            const button = q('button', form);
+            if (button) {
+              const textNode = Array.from(button.childNodes).find(function(node) {
+                return node.nodeType === Node.TEXT_NODE && node.textContent.trim();
+              });
+              if (textNode) textNode.textContent = 'View on Goodreads';
+              button.setAttribute('type', 'button');
+              button.addEventListener('click', function() {
+                window.open(urls.goodreads, '_blank', 'noopener');
+              });
+            }
+          }
+          const note = qa('p', newsletter).find(function(node) {
+            return node.textContent.includes('No spam.');
+          });
+          if (note) note.textContent = 'Now available on Amazon and Goodreads.';
+        }
+
+        const footer = document.getElementById('contact');
+        if (footer) {
+          const contactHeading = qa('h3', footer).find(function(node) { return node.textContent.trim() === 'Contact'; });
+          const connectHeading = qa('h3', footer).find(function(node) { return node.textContent.trim() === 'Connect'; });
+          const contactColumn = contactHeading ? contactHeading.parentElement : null;
+          const connectColumn = connectHeading ? connectHeading.parentElement : null;
+
+          if (contactColumn) {
+            const emailAnchor = q('a', contactColumn);
+            setExternalLink(emailAnchor, urls.email, 'ethan.a.caspian@gmail.com');
+            const actionLinks = qa('a', contactColumn).slice(1);
+            const actionData = [
+              { label: 'Amazon', href: urls.amazon },
+              { label: 'Website', href: urls.website },
+              { label: 'LinkedIn', href: urls.linkedin }
+            ];
+            actionLinks.forEach(function(anchor, index) {
+              const data = actionData[index];
+              if (data) setExternalLink(anchor, data.href, data.label);
+            });
+          }
+
+          if (connectColumn) {
+            const connectLinks = qa('a', connectColumn);
+            const connectData = [
+              { label: 'Website', href: urls.website },
+              { label: 'LinkedIn', href: urls.linkedin },
+              { label: 'Goodreads', href: urls.goodreads }
+            ];
+            connectLinks.forEach(function(anchor, index) {
+              const data = connectData[index];
+              if (data) setExternalLink(anchor, data.href, data.label);
+            });
+          }
+
+          const footerBottomLinks = qa('div.flex.items-center.gap-6 a', footer);
+          const bottomData = [
+            { label: 'Website', href: urls.website },
+            { label: 'Amazon', href: urls.amazon }
+          ];
+          footerBottomLinks.forEach(function(anchor, index) {
+            const data = bottomData[index];
+            if (data) setExternalLink(anchor, data.href, data.label);
+          });
+        }
+      });
+    </script>
   </body>
 </html>
