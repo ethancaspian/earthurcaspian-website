@@ -13,6 +13,56 @@
         border-color: rgba(201, 162, 39, 0.65) !important;
         color: #FFF8E7 !important;
       }
+
+      #hero {
+        position: relative;
+        overflow: hidden;
+      }
+      #hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 72% 48%, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.00) 24%),
+          linear-gradient(90deg, rgba(6,7,12,0.86) 0%, rgba(8,8,14,0.60) 42%, rgba(10,10,15,0.34) 100%),
+          linear-gradient(180deg, rgba(4,5,10,0.34) 0%, rgba(4,5,10,0.60) 100%),
+          url('./images/death_nebula_bg.jpg');
+        background-size: cover;
+        background-position: center center;
+        opacity: 0.92;
+        filter: saturate(1.05) contrast(1.04);
+        transform: scale(1.04);
+        z-index: 0;
+      }
+      #hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 50% 50%, rgba(18, 10, 28, 0.00) 0%, rgba(4, 5, 10, 0.38) 68%, rgba(3, 4, 8, 0.72) 100%);
+        z-index: 0;
+        pointer-events: none;
+      }
+      #hero > .absolute.inset-0 {
+        opacity: 0.45;
+      }
+      #hero .relative.z-10 {
+        position: relative;
+        z-index: 2;
+      }
+      @media (max-width: 1024px) {
+        #hero::before {
+          background-position: 62% center;
+        }
+      }
+      @media (max-width: 768px) {
+        #hero::before {
+          background:
+            linear-gradient(180deg, rgba(6,7,12,0.38) 0%, rgba(6,7,12,0.72) 40%, rgba(6,7,12,0.90) 100%),
+            url('./images/death_nebula_bg.jpg');
+          background-size: cover;
+          background-position: center center;
+        }
+      }
       #hero .hero-goodreads-inline {
         display: inline-flex;
         align-items: center;
