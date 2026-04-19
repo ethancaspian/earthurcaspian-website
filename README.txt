@@ -1,1 +1,0 @@
-Upload the contents of this folder directly to Netlify Drop, or zip these files and upload the zip. No build step needed.
