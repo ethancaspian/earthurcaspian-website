@@ -1,0 +1,7 @@
+# Manual deploy — no build needed, files are pre-built
+# Just ensure SPA routing works for React Router
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
